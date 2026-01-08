@@ -1,0 +1,226 @@
+═══════════════════════════════════════════════════════
+    NEWS AGENT - SIFIRDAN BAŞLAMA REHBERİ
+═══════════════════════════════════════════════════════
+
+🎯 ÖNEMLİ: Bu rehberi adım adım takip edin!
+
+═══════════════════════════════════════════════════════
+📋 BAŞLAMADAN ÖNCE GEREKEN ŞEYLER
+═══════════════════════════════════════════════════════
+
+✓ Windows işletim sistemi
+✓ İnternet bağlantısı
+✓ OpenAI API anahtarı (platformopenai.com'dan alınır)
+✓ En az 1 GB boş disk alanı
+
+═══════════════════════════════════════════════════════
+🚀 ADIM 1: PYTHON KURULUMU (Eğer yoksa)
+═══════════════════════════════════════════════════════
+
+1. https://www.python.org/downloads/ adresine gidin
+2. "Download Python 3.12" (veya 3.11/3.10) butonuna tıklayın
+3. İndirilen dosyayı çalıştırın
+
+⚠️ ÇOK ÖNEMLİ: 
+   Kurulum ekranında "Add Python to PATH" seçeneğini 
+   mutlaka işaretleyin! (En altta)
+
+4. "Install Now" butonuna tıklayın
+5. Kurulum bitince bilgisayarı yeniden başlatın
+
+═══════════════════════════════════════════════════════
+🔑 ADIM 2: OPENAI API ANAHTARI ALMA
+═══════════════════════════════════════════════════════
+
+1. https://platform.openai.com adresine gidin
+2. Hesap oluşturun veya giriş yapın
+3. Sağ üstteki profil ikonuna tıklayın
+4. "API keys" seçeneğine tıklayın
+5. "Create new secret key" butonuna tıklayın
+6. İsim verin (örn: "News Agent")
+7. "Create secret key" butonuna tıklayın
+8. ⚠️ ÖNEMLİ: Çıkan anahtarı kopyalayıp güvenli bir yere kaydedin!
+   (Bu anahtar sadece bir kez gösterilir)
+
+Format: sk-proj-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+9. Kredi kartı bilgilerinizi ekleyin (Settings → Billing)
+   ($5 ücretsiz kredi verilir)
+
+═══════════════════════════════════════════════════════
+📦 ADIM 3: PROJE KURULUMU
+═══════════════════════════════════════════════════════
+
+1. İndirdiğiniz zip dosyasını çıkarın
+2. News-Agent-main klasörüne girin
+3. Şu dosyaları göreceksiniz:
+
+   ✓ BASLATICI.bat      ← Ana menü (EN KOLAY)
+   ✓ 1-kurulum.bat      ← Kurulum dosyası
+   ✓ 2-calistir.bat     ← Çalıştırma dosyası
+   ✓ BASLATMA_REHBERI.txt ← Bu dosya
+
+4. "BASLATICI.bat" dosyasına SAĞTIK → "Yönetici olarak çalıştır"
+
+   VEYA
+
+   "1-kurulum.bat" dosyasına çift tıklayın
+
+5. Kurulum başlayacak, bekleyin (2-5 dakika)
+6. Pencere KAPANMASIN! Açık kalmalı
+
+7. Kurulum bitince .env dosyası açılacak
+8. "your-api-key-here" yazan yere API anahtarınızı yapıştırın:
+
+   OPENAI_API_KEY=sk-proj-xxxxxxxxxxxxxxxxx
+   
+9. Dosyayı kaydedin (Ctrl+S) ve kapatın
+
+═══════════════════════════════════════════════════════
+▶️ ADIM 4: PROJEYI ÇALIŞTIRMA
+═══════════════════════════════════════════════════════
+
+1. "2-calistir.bat" dosyasına çift tıklayın
+
+   VEYA
+
+   "BASLATICI.bat" → "2 - CALISTIR" seçeneğini seçin
+
+2. Bekleyin (2-5 dakika)
+3. Pencereyi KAPATMAYIN!
+
+4. İşlem bitince:
+   - "src\ai_news\news\" klasöründe .md dosyası oluşur
+   - Dosya otomatik açılabilir veya manuel açabilirsiniz
+
+═══════════════════════════════════════════════════════
+⚙️ ÖZELLEŞTİRME (İsteğe Bağlı)
+═══════════════════════════════════════════════════════
+
+Farklı konularda haber oluşturmak için:
+
+1. "src\ai_news\main.py" dosyasını Not Defteri ile açın
+2. 19. satırdaki 'topic' değerini değiştirin:
+
+   'topic': 'Yapay Zeka'          # Türkçe de olabilir
+   'topic': 'Blockchain'
+   'topic': 'SpaceX'
+   'topic': 'Quantum Computing'
+
+3. Kaydedin ve "2-calistir.bat" ile tekrar çalıştırın
+
+═══════════════════════════════════════════════════════
+❌ SORUN YAŞIYORSANIZ
+═══════════════════════════════════════════════════════
+
+1. BAT DOSYASI HEMEN KAPANIYOR:
+   → Sağ tık → "Yönetici olarak çalıştır" deneyin
+   → BASLATICI.bat kullanın
+
+2. "PYTHON BULUNAMADI" HATASI:
+   → Python kurulumunda "Add to PATH" işaretlemeyi unuttunuz
+   → Python'u kaldırıp tekrar kurun (PATH ile)
+   → Bilgisayarı yeniden başlatın
+
+3. "CREWAI BULUNAMADI" HATASI:
+   → CMD açın (Yönetici olarak)
+   → Şu komutları çalıştırın:
+     pip install crewai
+     pip install "crewai[tools]"
+
+4. "INVALID API KEY" HATASI:
+   → .env dosyasındaki API anahtarını kontrol edin
+   → Başında/sonunda boşluk olmamalı
+   → OpenAI hesabınızda kredi var mı kontrol edin
+
+5. İNTERNET HATALARI:
+   → Firewall'u kapatmayı deneyin
+   → VPN kullanıyorsanız kapatın
+   → Antivirüs Python'u engelliyor olabilir
+
+═══════════════════════════════════════════════════════
+🔍 SİSTEM KONTROLÜ
+═══════════════════════════════════════════════════════
+
+Her şeyin doğru kurulup kurulmadığını kontrol etmek için:
+
+Yöntem 1: BASLATICI.bat → "4 - Sistem Kontrolu"
+
+Yöntem 2: CMD açın ve sırayla deneyin:
+   python --version
+   pip --version
+   pip show crewai
+
+Hepsi çalışmalı!
+
+═══════════════════════════════════════════════════════
+💡 İPUÇLARI
+═══════════════════════════════════════════════════════
+
+✓ İlk çalıştırma her zaman daha uzun sürer
+✓ Her makale yaklaşık 2-5 dakika sürer
+✓ API kullanımı ücretsiz krediden düşer ($5)
+✓ Aynı anda birden fazla çalıştırmayın
+✓ İnternet bağlantısı şart (araştırma yapıyor)
+
+═══════════════════════════════════════════════════════
+📊 MALİYET TAHMİNİ
+═══════════════════════════════════════════════════════
+
+GPT-3.5 Turbo (Önerilen):
+- Tek makale: ~$0.01 - $0.10
+- 100 makale: ~$1 - $10
+
+GPT-4 (Daha kaliteli, daha pahalı):
+- Tek makale: ~$0.05 - $0.50
+- 100 makale: ~$5 - $50
+
+İlk $5 ücretsiz kredinizle yaklaşık 50-500 makale oluşturabilirsiniz.
+
+═══════════════════════════════════════════════════════
+📁 KLASÖR YAPISI
+═══════════════════════════════════════════════════════
+
+News-Agent-main/
+├── BASLATICI.bat           ← Ana menü
+├── 1-kurulum.bat           ← Kurulum
+├── 2-calistir.bat          ← Çalıştırma
+├── .env                    ← API anahtarı (otomatik oluşur)
+├── src/
+│   └── ai_news/
+│       ├── main.py         ← Konu buradan değiştirilir
+│       ├── config/
+│       │   ├── agents.yaml ← AI ajanları ayarları
+│       │   └── tasks.yaml  ← Görevler ayarları
+│       └── news/
+│           └── *.md        ← Oluşan makaleler burada
+
+═══════════════════════════════════════════════════════
+🆘 YARDIM
+═══════════════════════════════════════════════════════
+
+Hala sorun yaşıyorsanız:
+
+1. Hata mesajının ekran görüntüsünü alın
+2. Sistem kontrolü yapın (BASLATICI.bat → 4)
+3. Şu bilgileri toplayın:
+   - Windows versiyonu
+   - Python versiyonu (python --version)
+   - Hata mesajı
+
+4. CrewAI dokümantasyonu:
+   https://docs.crewai.com
+
+═══════════════════════════════════════════════════════
+
+İyi kullanımlar! 🚀
+
+Bu projeyi başarıyla çalıştırdığınızda:
+✓ AI ajanları otomatik araştırma yapar
+✓ Güncel bilgiler toplar
+✓ Profesyonel makale oluşturur
+✓ Markdown formatında kaydeder
+
+Her şey hazır! Başlayın! 💪
+
+═══════════════════════════════════════════════════════

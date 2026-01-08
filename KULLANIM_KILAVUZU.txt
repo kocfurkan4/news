@@ -1,0 +1,115 @@
+# News Agent - Kurulum ve Kullanım Kılavuzu
+
+## 📁 Dosyalar
+
+Bu zip dosyasında şu bat dosyaları bulunuyor:
+
+### 1️⃣ **start.bat** (ÖNERİLEN)
+En kolay yöntem! Menüden istediğiniz işlemi seçin:
+- Kurulum
+- Çalıştırma
+- Ayar düzenleme
+- Konu değiştirme
+
+### 2️⃣ **setup.bat**
+İlk kurulum için. Şunları yapar:
+- Python kontrolü
+- Gerekli paketleri yükler (uv, crewai)
+- .env dosyası oluşturur
+- API key girmeniz için dosyayı açar
+
+### 3️⃣ **run.bat**
+Projeyi çalıştırır. Kurulum bittikten sonra kullanın.
+
+---
+
+## 🚀 Hızlı Başlangıç
+
+### Adım 1: Kurulum
+1. `setup.bat` dosyasına çift tıklayın
+2. Açılan .env dosyasına OpenAI API anahtarınızı girin:
+   ```
+   OPENAI_API_KEY=sk-xxxxxxxxxxxxxx
+   ```
+3. Kaydedin ve kapatın
+
+### Adım 2: Çalıştırma
+1. `run.bat` dosyasına çift tıklayın
+2. Bekleyin (2-5 dakika sürebilir)
+3. Oluşan haber makalesi `src/ai_news/news/` klasöründe olacak
+
+---
+
+## ⚙️ Özelleştirme
+
+### Konuyu Değiştirmek
+`src/ai_news/main.py` dosyasını açın ve şu satırı düzenleyin:
+```python
+'topic': 'LLM ',  # Buraya istediğiniz konuyu yazın
+```
+
+Örnek konular:
+- 'Yapay Zeka Haberleri'
+- 'Blockchain'
+- 'Quantum Computing'
+- 'SpaceX'
+
+### Birden Fazla Konu İçin
+`main.py` dosyasında yorum satırlarını kaldırın:
+```python
+inputs_array = [
+    {'topic': 'ai agents', 'date': datetime.now().strftime('%Y-%m-%d_%H-%M-%S')},
+    {'topic': 'openai', 'date': datetime.now().strftime('%Y-%m-%d_%H-%M-%S')},
+    {'topic': 'hugging face', 'date': datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}
+]
+```
+
+---
+
+## ❗ Sorun Giderme
+
+### "Python yuklu degil" hatası
+- Python 3.10, 3.11 veya 3.12 yükleyin
+- python.org adresinden indirin
+
+### "API anahtari hatali" hatası
+- .env dosyasındaki API anahtarınızı kontrol edin
+- OpenAI hesabınızda kredi olduğundan emin olun
+
+### "crewai install hatasi"
+- Normal bir durum, devam edebilirsiniz
+- Eğer çalışmazsa `pip install crewai[tools]` komutunu manuel çalıştırın
+
+### İnternet bağlantısı yavaş
+- Proje internetten veri çektiği için yavaş olabilir
+- VPN kullanıyorsanız kapatmayı deneyin
+
+---
+
+## 📊 Çıktılar
+
+Proje çalıştırıldığında:
+- `src/ai_news/news/` klasöründe markdown (.md) dosyası oluşur
+- Dosya adı: `YYYY-MM-DD_HH-MM-SS_news_article.md`
+- İçinde AI ajanlarının araştırıp yazdığı haber makalesi bulunur
+
+---
+
+## 🆘 İletişim
+
+Sorun yaşarsanız:
+- [CrewAI Dokümantasyon](https://docs.crewai.com)
+- [CrewAI GitHub](https://github.com/joaomdmoura/crewai)
+- [CrewAI Discord](https://discord.com/invite/X4JWnZnxPb)
+
+---
+
+## 💡 İpuçları
+
+1. İlk çalıştırma biraz uzun sürer (paketler indiriliyor)
+2. Her çalıştırma 2-5 dakika arası sürer
+3. API kullanımı ücretsiz limitleri tüketebilir
+4. İnternetsiz çalışmaz (araştırma yapıyor)
+5. Türkçe konular da desteklenir!
+
+İyi kullanımlar! 🚀

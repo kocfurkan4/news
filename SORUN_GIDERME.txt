@@ -1,0 +1,238 @@
+# News Agent - Sorun Giderme ve Kurulum Rehberi
+
+## ⚠️ ÖNEMLI: "crewai is not recognized" Hatası Aldıysanız
+
+Bu hatayı aldıysanız, CrewAI düzgün kurulmamış demektir. Çözüm:
+
+### Hızlı Çözüm:
+1. **setup-fixed.bat** dosyasını çalıştırın (eski setup.bat yerine)
+2. Kurulum bitince **run-fixed.bat** ile çalıştırın
+
+---
+
+## 📦 DOSYALAR (Güncellenmiş)
+
+### ⭐ Ana Dosyalar (Bunları Kullanın):
+- **start-fixed.bat** - Menülü başlatıcı (EN KOLAY)
+- **setup-fixed.bat** - Gelişmiş kurulum
+- **run-fixed.bat** - Düzeltilmiş çalıştırma
+
+### ℹ️ Eski Dosyalar (İsteğe Bağlı):
+- setup.bat, run.bat, start.bat - Eski versiyonlar
+
+---
+
+## 🚀 ADIM ADIM KURULUM
+
+### 1. Python Kurulumu (Henüz yoksa)
+- https://www.python.org/downloads/ adresinden indirin
+- **ÖNEMLİ:** Kurulum sırasında "Add Python to PATH" seçeneğini işaretleyin!
+- Python 3.10, 3.11 veya 3.12 versiyonlarından birini yükleyin
+
+### 2. Gelişmiş Kurulum
+```cmd
+1. setup-fixed.bat dosyasına çift tıklayın
+2. Kurulum bitene kadar bekleyin (3-5 dakika)
+3. Açılan .env dosyasına API anahtarınızı yazın:
+   OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxx
+4. Kaydedin ve kapatın
+```
+
+### 3. Çalıştırma
+```cmd
+run-fixed.bat dosyasına çift tıklayın
+```
+
+---
+
+## 🔧 MANUEL KURULUM (Sorun Yaşarsanız)
+
+CMD veya PowerShell açın ve sırayla şu komutları çalıştırın:
+
+```cmd
+# Pip'i güncelleyin
+python -m pip install --upgrade pip
+
+# CrewAI'yi yükleyin
+pip install crewai
+pip install "crewai[tools]"
+
+# Ek paketleri yükleyin
+pip install python-dotenv
+pip install langchain
+pip install langchain-openai
+pip install openai
+
+# Kontrol edin
+pip show crewai
+```
+
+---
+
+## ❌ SIKÇA KARŞILAŞILAN HATALAR VE ÇÖZÜMLERİ
+
+### 1. "crewai is not recognized"
+**Sebep:** CrewAI kurulmamış veya PATH'e eklenmemiş
+
+**Çözüm A - Kolay:**
+```cmd
+setup-fixed.bat dosyasını çalıştırın
+```
+
+**Çözüm B - Manuel:**
+```cmd
+pip install crewai
+pip install "crewai[tools]"
+```
+
+**Çözüm C - Alternatif Çalıştırma:**
+```cmd
+# crewai run yerine:
+python -m crewai run
+
+# veya doğrudan:
+cd src\ai_news
+python main.py
+```
+
+---
+
+### 2. "Python is not recognized"
+**Sebep:** Python kurulu değil veya PATH'e eklenmemiş
+
+**Çözüm:**
+1. Python'u yeniden kurun
+2. Kurulum sırasında "Add Python to PATH" seçeneğini işaretleyin
+3. Bilgisayarı yeniden başlatın
+
+---
+
+### 3. "pip is not recognized"
+**Sebep:** pip PATH'e eklenmemiş
+
+**Çözüm:**
+```cmd
+# Pip'i şöyle kullanın:
+python -m pip install crewai
+```
+
+---
+
+### 4. "Invalid API Key" veya OpenAI hataları
+**Sebep:** API anahtarı yanlış veya eksik
+
+**Çözüm:**
+1. .env dosyasını açın
+2. API anahtarınızı kontrol edin
+3. Başında/sonunda boşluk olmamalı
+4. Şu formatta olmalı: `OPENAI_API_KEY=sk-xxxxxxx`
+5. OpenAI hesabınızda kredi olduğundan emin olun
+
+---
+
+### 5. "Permission denied" veya "Access denied"
+**Sebep:** Antivirus veya yetki sorunu
+
+**Çözüm:**
+1. CMD'yi "Yönetici olarak çalıştır" ile açın
+2. Antivirüsü geçici olarak kapatın
+3. Windows Defender'da Python'u istisna olarak ekleyin
+
+---
+
+### 6. Yavaş kurulum / timeout hataları
+**Sebep:** İnternet bağlantısı yavaş
+
+**Çözüm:**
+```cmd
+# Tek tek yükleyin:
+pip install crewai --no-cache-dir
+pip install langchain --no-cache-dir
+pip install openai --no-cache-dir
+```
+
+---
+
+## 🔍 SİSTEM KONTROLÜ
+
+Sisteminizi kontrol etmek için:
+
+### Yöntem 1: Menüden
+```cmd
+start-fixed.bat dosyasını çalıştırın
+"3 - Python ve Paket Kontrolu" seçeneğini seçin
+```
+
+### Yöntem 2: Manuel
+CMD açın ve sırayla:
+```cmd
+python --version
+pip --version
+pip show crewai
+crewai version
+```
+
+Tüm komutlar çalışmalı. Çalışmayan varsa kurulum eksik demektir.
+
+---
+
+## 🆘 HİÇBİR ŞEY ÇALIŞMIYORSA
+
+### Son Çare - Tamamen Temiz Kurulum:
+
+1. **Python'u kaldırın** (Denetim Masası → Programlar)
+2. **Python'u yeniden kurun** ("Add to PATH" işaretli)
+3. **Bilgisayarı yeniden başlatın**
+4. **CMD'yi yönetici olarak açın**
+5. **Şu komutları sırayla çalıştırın:**
+```cmd
+python -m pip install --upgrade pip
+pip install crewai
+pip install "crewai[tools]"
+pip install python-dotenv langchain langchain-openai openai
+```
+6. **setup-fixed.bat** yerine direkt **run-fixed.bat** deneyin
+
+---
+
+## 💡 MANUEL ÇALIŞTIRMA (En Garanti Yöntem)
+
+Eğer bat dosyaları çalışmıyorsa:
+
+1. CMD açın
+2. Proje klasörüne gidin: `cd C:\...\News-Agent-main`
+3. Şu komutu çalıştırın:
+```cmd
+cd src\ai_news
+python main.py
+```
+
+---
+
+## 📞 DESTEK
+
+Hala sorun yaşıyorsanız:
+- Hata mesajının ekran görüntüsünü alın
+- Python versiyonunuzu kontrol edin: `python --version`
+- Yüklü paketleri kontrol edin: `pip list`
+
+**Kontrol komutu:**
+```cmd
+python --version && pip --version && pip show crewai
+```
+
+Bu komutun çıktısını paylaşırsanız daha iyi yardımcı olabilirim!
+
+---
+
+## ✅ BAŞARILI KURULUM KONTROLÜ
+
+Kurulum başarılıysa şunlar çalışmalı:
+
+✓ `python --version` → Python 3.10+ göstermeli
+✓ `pip --version` → pip versiyonu göstermeli  
+✓ `pip show crewai` → CrewAI bilgileri göstermeli
+✓ `.env` dosyası mevcut ve API key girilmiş
+✓ `run-fixed.bat` hata vermeden çalışmalı
+
+İyi kullanımlar! 🚀
